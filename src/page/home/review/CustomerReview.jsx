@@ -14,7 +14,7 @@ const CustomerReview = () => {
           iure molestiae ab?
         </p>
       </div>
-      <div className="grid  grid-cols-3 gap-10 w-11/12 mx-auto">
+      <div className="grid  md:grid-cols-3 gap-10 w-11/12 mx-auto">
         <ReviewCard name={"Jone Smith "} />
         <ReviewCard name={"Leo Junior "} />
         <ReviewCard name={"Amber Heart "} />
