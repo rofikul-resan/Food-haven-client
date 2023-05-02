@@ -1,6 +1,4 @@
 import { Link, NavLink } from "react-router-dom";
-import Banner from "./Banner";
-
 const Navber = () => {
   return (
     <header>

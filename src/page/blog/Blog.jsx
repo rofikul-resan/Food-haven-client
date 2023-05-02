@@ -1,4 +1,3 @@
-import React from "react";
 import Navber from "../../components/header/Navber";
 
 const Blog = () => {
