@@ -1,0 +1,14 @@
+.form-control input {
+  @apply bg-transparent border-b border-b-white px-4 py-2;
+}
+.form-control input:focus {
+  border-radius: 5px 5px 0 0;
+  @apply bg-white/20 outline-none;
+}
+.form-control input::placeholder {
+  @apply italic;
+}
+
+.form-control {
+  @apply w-10/12 mx-auto mb-3;
+}

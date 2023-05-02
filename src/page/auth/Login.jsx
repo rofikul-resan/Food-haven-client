@@ -1,0 +1,83 @@
+/* eslint-disable react/no-unescaped-entities */
+import React, { useState } from "react";
+import "./authLayout.css";
+import {
+  BsEye,
+  BsEyeSlash,
+  BsFacebook,
+  BsGithub,
+  BsGoogle,
+} from "react-icons/bs";
+import { Link } from "react-router-dom";
+
+const Login = () => {
+  const [showPass, setShowPass] = useState(false);
+  return (
+    <div className="flex  h-full justify-center  overflow-hidden items-center">
+      <div className="bg-black/80  w-3/6 rounded-lg p-5">
+        <h1 className="text-center text-white">Log in</h1>
+        <form className="text-white ">
+          <div className="form-control">
+            <label className="label">
+              <span className=" font-semibold italic text-xl">Email</span>
+            </label>
+            <input type="text" placeholder="Your Email" required />
+          </div>
+          <div className="form-control relative">
+            <label className="label">
+              <span className=" font-semibold italic text-xl">Password</span>
+            </label>
+            <div
+              className="absolute z-10 right-6 bottom-[40%]"
+              onClick={() => setShowPass(!showPass)}
+            >
+              {!showPass ? <BsEye /> : <BsEyeSlash />}
+            </div>
+            <input
+              type={showPass ? "text" : "password"}
+              placeholder="Your Password"
+              required
+            />
+            <label className="label">
+              <a href="#" className="text-sm hover:underline hover:text-white">
+                Forgot password?
+              </a>
+            </label>
+          </div>
+          <div className="form-control mt-6">
+            <button type="submit" className="btn btn-primary">
+              Login
+            </button>
+          </div>
+          <p className="text-center">
+            Don't Have an account ?{" "}
+            <Link to={"/auth/sing-up"} className="link ">
+              Register
+            </Link>{" "}
+          </p>
+        </form>
+        <div className="border border-white relative my-12">
+          <p className="bg-black absolute border p-3 rounded-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 border-white w-fit text-center text-white">
+            or
+          </p>
+        </div>
+        <div className="text-white/80 text-center">
+          <h1>Log in with</h1>
+          <div className="flex w-1/2 mx-auto justify-evenly my-8">
+            <button className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300">
+              <BsGoogle />
+            </button>
+            <button className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300">
+              <BsFacebook />
+            </button>
+            <button className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300">
+              <BsGithub />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

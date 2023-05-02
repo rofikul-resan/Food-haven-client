@@ -6,6 +6,9 @@ import AllRecipesLayout from "../page/recipes/AllRecipesLayout";
 import ChefRecipe from "../page/recipes/chefRecipes/ChefRecipe";
 import FoodDetailsCard from "../page/recipes/FoodDetailsCard";
 import AllFood from "../page/recipes/AllFood";
+import AuthLayout from "../page/auth/AuthLayout";
+import Login from "../page/auth/Login";
+import SingUP from "../page/auth/SingUP";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +35,20 @@ const router = createBrowserRouter([
         element: <ChefRecipe />,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/chef/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "sing-up",
+        element: <SingUP />,
       },
     ],
   },

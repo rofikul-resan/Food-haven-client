@@ -77,10 +77,16 @@ const Navber = () => {
             Recipe
           </NavLink>
           <div>
-            <Link className="btn btn-success mr-3 hover:text-white" to={""}>
+            <Link
+              className="btn btn-success mr-3 hover:text-white"
+              to={"/auth/login"}
+            >
               Log in
             </Link>
-            <Link className="btn btn-success hover:text-white" to={""}>
+            <Link
+              className="btn btn-success hover:text-white"
+              to={"/auth/sing-up"}
+            >
               Register
             </Link>
           </div>
