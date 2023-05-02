@@ -4,12 +4,13 @@ const Navber = () => {
     <header>
       <nav
         className="flex justify-between items-center text-white text-xl
-    font-bold nav-bg md:px-20 py-3"
+     nav-bg md:px-20 py-3"
       >
-        <div>
+        <div className="flex items-center gap-3">
           <img className="h-16 rounded-xl" src="/food-haven-logo.png" alt="" />
+          <h3>FOOD-HAVEN</h3>
         </div>
-        <div className="flex gap-6 ">
+        <div className="flex gap-5 items-center ">
           <NavLink
             className={({ isActive }) => (isActive ? "active-nav" : "")}
             to={"/"}
@@ -38,14 +39,14 @@ const Navber = () => {
             {" "}
             Recipe
           </NavLink>
-        </div>
-        <div>
-          <Link className="btn btn-success mr-3 hover:text-white" to={""}>
-            Log in
-          </Link>
-          <Link className="btn btn-success hover:text-white" to={""}>
-            Register
-          </Link>
+          <div>
+            <Link className="btn btn-success mr-3 hover:text-white" to={""}>
+              Log in
+            </Link>
+            <Link className="btn btn-success hover:text-white" to={""}>
+              Register
+            </Link>
+          </div>
         </div>
       </nav>
     </header>

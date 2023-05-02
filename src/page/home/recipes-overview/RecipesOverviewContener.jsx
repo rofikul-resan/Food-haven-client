@@ -29,7 +29,7 @@ const RecipesOverviewContener = () => {
             see more +
           </Link>
         </div>
-        <div className="grid grid-cols-3 gap-4 mt-6">
+        <div className="grid md:grid-cols-3 gap-4 mt-6">
           {recipe.slice(7, 10).map((food) => (
             <FoodCard key={food.idMeal} food={food} />
           ))}

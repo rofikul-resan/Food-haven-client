@@ -5,6 +5,7 @@ import ChefContener from "./chef/ChefContener";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RecipesOverviewContener from "./recipes-overview/RecipesOverviewContener";
+import CustomerReview from "./review/CustomerReview";
 
 const HomeLayout = () => {
   return (
@@ -14,6 +15,7 @@ const HomeLayout = () => {
       <div className="chef-contener">
         <RecipesOverviewContener />
         <ChefContener></ChefContener>
+        <CustomerReview />
       </div>
       <ToastContainer />
       <Footer />

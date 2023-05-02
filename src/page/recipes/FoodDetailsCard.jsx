@@ -2,10 +2,11 @@ import React from "react";
 import { BsStar, BsStarFill, BsYoutube } from "react-icons/bs";
 import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
+import RatingRamdom from "../../components/RatingRamdom";
 
 const FoodDetailsCard = () => {
   const recipe = useLoaderData();
-  const rating = 3 + +(Math.random() * 2).toFixed(1);
+
   const { MealThumb, Meal, Instructions, Ingredient, Category, Area } = recipe;
 
   return (
@@ -29,15 +30,7 @@ const FoodDetailsCard = () => {
 
           <div className="flex">
             <span>Rating : </span>
-            <div>
-              <Rating
-                className="text-orange-500 text-xl ml-2"
-                initialRating={rating}
-                fullSymbol={<BsStarFill />}
-                emptySymbol={<BsStar className="mr-1" />}
-              />{" "}
-              <span className="mb-2 font-semibold">{rating}</span>
-            </div>
+            <RatingRamdom />
           </div>
 
           <h3 className="border-b border-black">Ingredient For cooking</h3>
@@ -52,7 +45,7 @@ const FoodDetailsCard = () => {
           </div>
           <div className="card-actions justify-end">
             <button className="btn btn-success gap-4 w-full mt-4">
-              <BsYoutube className="text-xl" />
+              <BsYoutube className="text-xl text-red-600" />
               See Instruction in YouTube
             </button>
           </div>

@@ -16,7 +16,7 @@ const Banner = () => {
               and tasting dishes if no one is there to eat them?
             </p>
             <Link
-              to={"/foods"}
+              to={"/recipes"}
               className="btn btn-primary w-fit mt-6 flex items-center gap-3"
             >
               View all recipe <BsArrowRight className="font-bold text-xl" />
