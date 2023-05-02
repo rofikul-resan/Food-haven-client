@@ -5,7 +5,7 @@ const Banner = () => {
     <div className="h-[500px] overflow-hidden  relative">
       <img className="w-full blur-sm " src="/slider1.jpg" alt="" />
       <div className="absolute bg-black/60  inset-0 z-10">
-        <div className=" grid grid-cols-2 w-10/12 mx-auto ">
+        <div className=" grid md:grid-cols-2 w-10/12 mx-auto ">
           <div className="text-white mt-10">
             <h1 className=" text-5xl mb-6">Welcome to our Food Haven</h1>
             <p className="font-semibold w-4/6">
@@ -24,7 +24,7 @@ const Banner = () => {
           </div>
           <div>
             <img
-              className="absolute bottom-0 right-24"
+              className="absolute bottom-0 right-24 hidden md:block"
               src="/banner-chef.png"
               alt=""
             />

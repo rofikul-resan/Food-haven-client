@@ -36,3 +36,12 @@ h2 {
 h3 {
   @apply text-xl font-bold;
 }
+
+.chef-contener {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    225deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(15, 42, 95, 1) 58%
+  );
+}
