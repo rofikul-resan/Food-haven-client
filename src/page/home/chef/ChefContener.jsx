@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ChefCard from "./ChefCard";
-import LazyLoad from "react-lazy-load";
 
 const ChefContener = () => {
   const [allChef, setAllChef] = useState([]);

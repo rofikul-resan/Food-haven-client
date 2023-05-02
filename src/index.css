@@ -45,3 +45,8 @@ h3 {
     rgba(15, 42, 95, 1) 58%
   );
 }
+
+.chef-profile-banner {
+  filter: blur(20px);
+  overflow: hidden;
+}

@@ -1,10 +1,9 @@
-import { BsArrowRight, BsHeart, BsHeartFill } from "react-icons/bs";
+import { BsArrowRight, BsHeartFill } from "react-icons/bs";
 import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const ChefCard = ({ chef }) => {
-  console.log(chef);
   const { img, total_recipes, name, experience, birthday, birthPlace, about } =
     chef;
   return (
@@ -37,7 +36,7 @@ const ChefCard = ({ chef }) => {
         <p className="text-sm mt-3 pt-2 border-t border-t-white">{about}</p>
 
         <Link
-          to={`/chef/${chef.id}`}
+          to={`/recipes/chef/${chef.id}`}
           className="btn btn-success w-fit  mt-3 flex gap-3"
         >
           View Recipes <BsArrowRight className="font-bold text-xl" />
