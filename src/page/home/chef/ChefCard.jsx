@@ -1,4 +1,4 @@
-import { BsArrowRight, BsHeartFill } from "react-icons/bs";
+import { BsArrowRight, BsHandThumbsUpFill } from "react-icons/bs";
 import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 
@@ -41,10 +41,12 @@ const ChefCard = ({ chef }) => {
         >
           View Recipes <BsArrowRight className="font-bold text-xl" />
         </Link>
+
+        {/* chef info footer  */}
         <div className="flex  items-center justify-between px-4 md:px-20 py-2 -mb-3 mt-3 rounded-md bg-white/10 w-full">
           <p>Total Recipes {total_recipes} items</p>
           <div className="flex items-center gap-1">
-            <BsHeartFill />
+            <BsHandThumbsUpFill />
             <span>400</span>
           </div>
         </div>

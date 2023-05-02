@@ -1,11 +1,11 @@
-import { BsArrowRight, BsHeartFill } from "react-icons/bs";
-import { Link, useLoaderData } from "react-router-dom";
+import { BsHandThumbsUpFill } from "react-icons/bs";
+import { useLoaderData } from "react-router-dom";
+import FoodCard from "../FoodCard";
 
 const ChefRecipe = () => {
   const data = useLoaderData();
   const { selectedChef, chefRecipes } = data;
-  const { img, total_recipes, name, experience, birthday, birthPlace, about } =
-    selectedChef;
+  const { img, name, experience, birthday, birthPlace, about } = selectedChef;
   return (
     <div className="bg-black pb-24">
       <div className="overflow-hidden">
@@ -45,13 +45,22 @@ const ChefRecipe = () => {
         <p className="text-sm mt-3 pt-2 border-t border-t-white text-justify">
           {about}
         </p>
+
+        {/* chef info footer  */}
         <div className="flex  items-center justify-between px-4 md:px-20 py-2  mt-10 rounded-md bg-white/10 w-full">
-          <p>Total Recipes {total_recipes} items</p>
+          <p>Total Recipes {chefRecipes.length} items</p>
           <div className="flex items-center gap-1">
-            <BsHeartFill />
+            <BsHandThumbsUpFill />
             <span>400</span>
           </div>
         </div>
+      </div>
+
+      {/* all Recipes of this chef */}
+      <div className="grid grid-cols-3 justify-items-center w-10/12 mx-auto gap-6 mt-12">
+        {chefRecipes.map((recipe) => (
+          <FoodCard key={recipe.idMeal} food={recipe} />
+        ))}
       </div>
     </div>
   );
