@@ -9,7 +9,7 @@ const ChefContener = () => {
       .then((data) => setAllChef(data));
   }, []);
   return (
-    <div className="chef-contener py-20 px-10 ">
+    <div className=" py-20 px-10 ">
       <div className="w-3/5 mx-auto text-white mb-8 text-center">
         <h1 className="mb-4">Our Famous Chef</h1>
         <p>

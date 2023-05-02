@@ -31,6 +31,13 @@ const Navber = () => {
             {" "}
             About Us
           </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active-nav" : "")}
+            to={"/recipes"}
+          >
+            {" "}
+            Recipe
+          </NavLink>
         </div>
         <div>
           <Link className="btn btn-success mr-3 hover:text-white" to={""}>

@@ -6,6 +6,7 @@ import Rating from "react-rating";
 import { BsHeart, BsHeartFill, BsStar, BsStarFill } from "react-icons/bs";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const FoodCard = ({ food }) => {
   const [isFavorite, setFavorite] = useState(false);
@@ -32,7 +33,9 @@ const FoodCard = ({ food }) => {
             food from American Burger
           </p>
           <div className="card-actions ">
-            <button className="btn btn-primary">View details</button>
+            <Link to={`/recipes/${food.idMeal}`} className="btn btn-primary">
+              View details
+            </Link>
           </div>
         </div>
         <div className="mb-3 px-3 flex justify-between">
