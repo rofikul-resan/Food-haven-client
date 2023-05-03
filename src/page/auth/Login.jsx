@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
+import { ScaleLoader } from "react-spinners";
 import "./authLayout.css";
 import {
   BsEye,
@@ -8,43 +9,52 @@ import {
   BsGithub,
   BsGoogle,
 } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const [logInReq, setlogInReq] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const { login, setLoading, googleSingIn, facebookSingIn, githubSingIn } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state;
 
   const handleLogIn = (event) => {
     event.preventDefault();
+
     const inputForm = event.target;
     const email = inputForm.email.value;
     const password = inputForm.password.value;
     if (password.length >= 6) {
+      setlogInReq(true);
       setErrorMsg("");
       login(email, password)
         .then(() => {
-          navigate("/");
+          navigate(from || "/");
           inputForm.reset();
+          setlogInReq(false);
         })
         .catch((error) => {
           setLoading(false);
-          const errorMessage = error.errorMessage;
-          toast(errorMessage);
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          setErrorMsg(errorMessage);
+          setlogInReq(false);
         });
     } else {
       setErrorMsg("password much be 6 characters");
     }
   };
 
+  console.log(errorMsg);
   const handleGoogleLogIn = () => {
     googleSingIn()
       .then(() => {
-        navigate("/");
+        navigate(from || "/");
       })
       .catch(() => {
         const errorMessage = error.message;
@@ -54,7 +64,7 @@ const Login = () => {
   const handleFacebookLogIn = () => {
     facebookSingIn()
       .then(() => {
-        navigate("/");
+        navigate(from || "/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -64,7 +74,7 @@ const Login = () => {
   const handleGithubLogIn = () => {
     githubSingIn()
       .then(() => {
-        navigate("/");
+        navigate(from || "/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -73,6 +83,17 @@ const Login = () => {
   };
   return (
     <div className="flex  h-full justify-center  overflow-hidden items-center">
+      {errorMsg && (
+        <div className="py-6 text-center text-xl bg-red-700/70 w-screen absolute top-0 text-white">
+          {" "}
+          <span className="text-2xl font-bold mr-5">X</span> {errorMsg}
+        </div>
+      )}
+      {logInReq && (
+        <div className="absolute inset-0 flex justify-center items-center z-20 bg-black/75">
+          <ScaleLoader color="#fff" />
+        </div>
+      )}
       <div className="bg-black/80  w-3/6 rounded-lg p-5">
         <h1 className="text-center text-white">Log in</h1>
         <form onSubmit={handleLogIn} className="text-white ">
@@ -123,7 +144,7 @@ const Login = () => {
           </div>
           <p className="text-center">
             Don't Have an account ?{" "}
-            <Link to={"/auth/sing-up"} className="link ">
+            <Link to={"/auth/sing-up"} state={from} className="link ">
               Register
             </Link>{" "}
           </p>

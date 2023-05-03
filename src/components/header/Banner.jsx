@@ -24,7 +24,7 @@ const Banner = () => {
           </div>
           <div>
             <img
-              className="absolute bottom-0 right-24 hidden md:block"
+              className="absolute bottom-0 h-[95%] right-24 hidden md:block"
               src="/banner-chef.png"
               alt=""
             />

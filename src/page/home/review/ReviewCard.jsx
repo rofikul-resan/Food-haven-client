@@ -6,9 +6,7 @@ const ReviewCard = ({ name }) => {
     <div className="bg-white card px-4 py-2">
       <img
         className="h-28 rounded-full mx-auto border-[5px] border-yellow-500 p-2"
-        src={
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkz68G3uGDyhzlsR3N_XfpF_s6zH-TFP0eOQ&usqp=CAU"
-        }
+        src={"/pfl-demo.jpg"}
         alt=""
       />
       <div className="text-center mb-4">

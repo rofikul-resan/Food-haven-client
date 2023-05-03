@@ -8,7 +8,7 @@ import {
   BsGithub,
   BsGoogle,
 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -16,7 +16,12 @@ const SingUP = () => {
   const [showPass, setShowPass] = useState(false);
   const [btnSubmit, setBtnSubmit] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const { singUP, updateUserData } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { singUP, updateUserData, googleSingIn, facebookSingIn, githubSingIn } =
+    useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state;
+  console.log(from);
 
   const handleSingUp = (event) => {
     event.preventDefault();
@@ -30,7 +35,10 @@ const SingUP = () => {
       singUP(email, password)
         .then(() => {
           updateUserData(name, photoUrl)
-            .then(() => toast.success("sing up successful"))
+            .then(() => {
+              navigate(from || "/");
+              toast.success("sing up successful");
+            })
             .catch((e) => toast(e.message));
         })
         .catch((error) => {
@@ -41,6 +49,37 @@ const SingUP = () => {
       setErrorMsg("password much be 6 characters");
       toast(errorMsg);
     }
+  };
+
+  const handleGoogleLogIn = () => {
+    googleSingIn()
+      .then(() => {
+        navigate(from || "/");
+      })
+      .catch(() => {
+        const errorMessage = error.message;
+        toast(errorMessage);
+      });
+  };
+  const handleFacebookLogIn = () => {
+    facebookSingIn()
+      .then(() => {
+        navigate(from || "/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast(errorMessage);
+      });
+  };
+  const handleGithubLogIn = () => {
+    githubSingIn()
+      .then(() => {
+        navigate(from || "/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast(errorMessage);
+      });
   };
   return (
     <div className="flex  h-full justify-center  overflow-hidden items-center">
@@ -136,13 +175,22 @@ const SingUP = () => {
         <div className="text-white/80 text-center">
           <h1>Log in with</h1>
           <div className="flex w-1/2 mx-auto justify-evenly my-8">
-            <button className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300">
+            <button
+              onClick={handleGoogleLogIn}
+              className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300"
+            >
               <BsGoogle />
             </button>
-            <button className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300">
+            <button
+              onClick={handleFacebookLogIn}
+              className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300"
+            >
               <BsFacebook />
             </button>
-            <button className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300">
+            <button
+              onClick={handleGithubLogIn}
+              className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300"
+            >
               <BsGithub />
             </button>
           </div>

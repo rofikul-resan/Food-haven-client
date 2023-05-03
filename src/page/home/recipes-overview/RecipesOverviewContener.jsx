@@ -10,7 +10,12 @@ const RecipesOverviewContener = () => {
       .then((data) => setRecipe(data));
   }, []);
   return (
-    <div>
+    <div className="pt-12">
+      <img
+        className="rounded-full mx-auto h-64 w-64  border-[10px] box-border border-orange-700"
+        src="/auth-bg.jpg"
+        alt=""
+      />
       <div className="w-3/5 mx-auto py-10 text-white text-center">
         <h1 className="mb-6">Our Recipes</h1>
         <p>

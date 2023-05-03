@@ -10,6 +10,7 @@ import AuthLayout from "../page/auth/AuthLayout";
 import Login from "../page/auth/Login";
 import SingUP from "../page/auth/SingUP";
 import Error404 from "../components/Error404";
+import PrivetRouter from "./PrivetRouter";
 
 const router = createBrowserRouter([
   {
@@ -28,13 +29,21 @@ const router = createBrowserRouter([
       },
       {
         path: ":id",
-        element: <FoodDetailsCard />,
+        element: (
+          <PrivetRouter>
+            <FoodDetailsCard />
+          </PrivetRouter>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/food/${params.id}`),
       },
       {
         path: "chef/:id",
-        element: <ChefRecipe />,
+        element: (
+          <PrivetRouter>
+            <ChefRecipe />
+          </PrivetRouter>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/chef/${params.id}`),
       },

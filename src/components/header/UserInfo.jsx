@@ -4,8 +4,7 @@ import demoProfilePic from "../../../public/pfl-demo.jpg";
 
 const UserInfo = () => {
   const { user, logOut } = useContext(AuthContext);
-  const { photoURL, displayName, email } = user;
-  console.log(user);
+  const { photoURL, displayName } = user;
   return (
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
