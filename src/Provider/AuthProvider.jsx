@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -15,6 +19,27 @@ const AuthProvider = ({ children }) => {
   const auth = getAuth(firebaseApp);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  // google sing in function
+
+  const googleSingIn = () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  // facebook sing in function
+
+  const facebookSingIn = () => {
+    const provider = new FacebookAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  // facebook sing in function
+
+  const githubSingIn = () => {
+    const provider = new GithubAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
 
   // log in function
   const login = (email, password) => {
@@ -58,6 +83,9 @@ const AuthProvider = ({ children }) => {
     logOut,
     updateUserData,
     setLoading,
+    googleSingIn,
+    facebookSingIn,
+    githubSingIn,
   };
   return (
     <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>

@@ -15,7 +15,8 @@ import { toast } from "react-toastify";
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const { login, setLoading } = useContext(AuthContext);
+  const { login, setLoading, googleSingIn, facebookSingIn, githubSingIn } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogIn = (event) => {
@@ -28,6 +29,7 @@ const Login = () => {
       login(email, password)
         .then(() => {
           navigate("/");
+          inputForm.reset();
         })
         .catch((error) => {
           setLoading(false);
@@ -37,6 +39,37 @@ const Login = () => {
     } else {
       setErrorMsg("password much be 6 characters");
     }
+  };
+
+  const handleGoogleLogIn = () => {
+    googleSingIn()
+      .then(() => {
+        navigate("/");
+      })
+      .catch(() => {
+        const errorMessage = error.message;
+        toast(errorMessage);
+      });
+  };
+  const handleFacebookLogIn = () => {
+    facebookSingIn()
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast(errorMessage);
+      });
+  };
+  const handleGithubLogIn = () => {
+    githubSingIn()
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast(errorMessage);
+      });
   };
   return (
     <div className="flex  h-full justify-center  overflow-hidden items-center">
@@ -103,13 +136,22 @@ const Login = () => {
         <div className="text-white/80 text-center">
           <h1>Log in with</h1>
           <div className="flex w-1/2 mx-auto justify-evenly my-8">
-            <button className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300">
+            <button
+              onClick={handleGoogleLogIn}
+              className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300"
+            >
               <BsGoogle />
             </button>
-            <button className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300">
+            <button
+              onClick={handleFacebookLogIn}
+              className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300"
+            >
               <BsFacebook />
             </button>
-            <button className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300">
+            <button
+              onClick={handleGithubLogIn}
+              className="text-2xl border border-white rounded-full p-2 hover:text-yellow-300"
+            >
               <BsGithub />
             </button>
           </div>

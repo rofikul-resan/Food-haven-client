@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import demoProfilePic from "../../../public/pfl-demo.jpg";
 
 const UserInfo = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -9,7 +10,11 @@ const UserInfo = () => {
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img src={photoURL} title={displayName} alt={displayName} />
+          <img
+            src={photoURL || demoProfilePic}
+            title={displayName}
+            alt={displayName || "demo pic"}
+          />
         </div>
       </label>
       <ul
@@ -22,7 +27,7 @@ const UserInfo = () => {
           </a>
         </li>
         <li>
-          <a className="hover:bg-violet-600"> Email : {email}</a>
+          <a className="hover:bg-violet-600"> Profile</a>
         </li>
         <li>
           <a className="hover:bg-violet-600">Settings</a>

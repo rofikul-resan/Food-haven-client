@@ -28,22 +28,10 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </div>
         <div>
-          <span className="footer-title">Newsletter</span>
-          <div className="form-control w-80">
-            <label className="label">
-              <span className="label-text">Enter your email address</span>
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="username@site.com"
-                className="input input-bordered w-full pr-16"
-              />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
-                Subscribe
-              </button>
-            </div>
-          </div>
+          <span className="footer-title">Contact Us</span>
+          <a className="link link-hover">Phone number: (907) 486-2612</a>
+          <a className="link link-hover">City: Kodiak -- State: Alaska (AK)</a>
+          <a className="link link-hover">Zipcode: 99615 -- Country: USA</a>
         </div>
       </div>
       <p className="text-center font-bold">
