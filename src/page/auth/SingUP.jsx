@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   BsEye,
   BsEyeSlash,
@@ -10,11 +10,13 @@ import {
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const SingUP = () => {
   const [showPass, setShowPass] = useState(false);
   const [btnSubmit, setBtnSubmit] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const { singUP, updateUserData } = useContext(AuthContext);
 
   const handleSingUp = (event) => {
     event.preventDefault();
@@ -23,10 +25,18 @@ const SingUP = () => {
     const password = inputForm.password.value;
     const photoUrl = inputForm.photoUrl.value;
     const email = inputForm.email.value;
-    const agreeTerms = inputForm.agreeTerms.checked;
     if (password.length >= 6) {
       setErrorMsg("");
-      console.log(name, password, email, photoUrl, agreeTerms);
+      singUP(email, password)
+        .then(() => {
+          updateUserData(name, photoUrl)
+            .then(() => toast.success("sing up successful"))
+            .catch((e) => toast(e.message));
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          toast(errorMessage);
+        });
     } else {
       setErrorMsg("password much be 6 characters");
       toast(errorMsg);

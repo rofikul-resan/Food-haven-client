@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import UserInfo from "./UserInfo";
+import { AuthContext } from "../../Provider/AuthProvider";
 const Navber = () => {
   const [isNavShow, setIsNavShow] = useState(false);
+  const { user } = useContext(AuthContext);
 
   return (
     <header>
@@ -76,20 +79,24 @@ const Navber = () => {
             {" "}
             Recipe
           </NavLink>
-          <div>
-            <Link
-              className="btn btn-success mr-3 hover:text-white"
-              to={"/auth/login"}
-            >
-              Log in
-            </Link>
-            <Link
-              className="btn btn-success hover:text-white"
-              to={"/auth/sing-up"}
-            >
-              Register
-            </Link>
-          </div>
+          {user ? (
+            <UserInfo />
+          ) : (
+            <div>
+              <Link
+                className="btn btn-success mr-3 hover:text-white"
+                to={"/auth/login"}
+              >
+                Log in
+              </Link>
+              <Link
+                className="btn btn-success hover:text-white"
+                to={"/auth/sing-up"}
+              >
+                Register
+              </Link>
+            </div>
+          )}
         </div>
       </nav>
     </header>
