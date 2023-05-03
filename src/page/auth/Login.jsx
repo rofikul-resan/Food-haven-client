@@ -23,7 +23,6 @@ const Login = () => {
       console.log(password, email);
     } else {
       setErrorMsg("password much be 6 characters");
-      toast(errorMsg);
     }
   };
   return (
