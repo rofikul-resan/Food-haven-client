@@ -117,6 +117,7 @@ const SingUP = () => {
             </Link>{" "}
           </p>
         </form>
+
         <div className="border border-white relative my-12">
           <p className="bg-black absolute border p-3 rounded-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 border-white w-fit text-center text-white">
             or

@@ -12,16 +12,35 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const handleLogIn = (event) => {
+    event.preventDefault();
+    const inputForm = event.target;
+    const email = inputForm.email.value;
+    const password = inputForm.password.value;
+    if (password.length >= 6) {
+      setErrorMsg("");
+      console.log(password, email);
+    } else {
+      setErrorMsg("password much be 6 characters");
+      toast(errorMsg);
+    }
+  };
   return (
     <div className="flex  h-full justify-center  overflow-hidden items-center">
       <div className="bg-black/80  w-3/6 rounded-lg p-5">
         <h1 className="text-center text-white">Log in</h1>
-        <form className="text-white ">
+        <form onSubmit={handleLogIn} className="text-white ">
           <div className="form-control">
             <label className="label">
               <span className=" font-semibold italic text-xl">Email</span>
             </label>
-            <input type="text" placeholder="Your Email" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
           </div>
           <div className="form-control relative">
             <label className="label">
@@ -36,6 +55,7 @@ const Login = () => {
             <input
               type={showPass ? "text" : "password"}
               placeholder="Your Password"
+              name="password"
               required
             />
             <label className="label">
@@ -44,6 +64,13 @@ const Login = () => {
               </a>
             </label>
           </div>
+
+          {errorMsg && (
+            <p className="text-xs form-control text-red-600 font-semibold">
+              {errorMsg}
+            </p>
+          )}
+
           <div className="form-control mt-6">
             <button type="submit" className="btn btn-primary">
               Login
