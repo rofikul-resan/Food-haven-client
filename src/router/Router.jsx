@@ -25,7 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/recipes",
         element: <AllFood />,
-        loader: () => fetch(`http://localhost:3000/foods`),
+        loader: () =>
+          fetch(
+            `https://food-heven-server-resan6231-gmailcom.vercel.app/foods`
+          ),
       },
       {
         path: ":id",
@@ -35,7 +38,9 @@ const router = createBrowserRouter([
           </PrivetRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/food/${params.id}`),
+          fetch(
+            `https://food-heven-server-resan6231-gmailcom.vercel.app/food/${params.id}`
+          ),
       },
       {
         path: "chef/:id",
@@ -45,7 +50,9 @@ const router = createBrowserRouter([
           </PrivetRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/chef/${params.id}`),
+          fetch(
+            `https://food-heven-server-resan6231-gmailcom.vercel.app/chef/${params.id}`
+          ),
       },
     ],
   },

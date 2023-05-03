@@ -5,7 +5,7 @@ import FoodCard from "../../recipes/FoodCard";
 const RecipesOverviewContener = () => {
   const [recipe, setRecipe] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/foods")
+    fetch("https://food-heven-server-resan6231-gmailcom.vercel.app/foods")
       .then((res) => res.json())
       .then((data) => setRecipe(data));
   }, []);

@@ -5,6 +5,7 @@ It is a react application project. This project about American some faumuse chef
 ## Live link
 
 - [Food Haven](https://food-haven-6f3c8.web.app)
+- [server](https://food-heven-server-resan6231-gmailcom.vercel.app/)
 
 ## Deployment
 
@@ -58,4 +59,4 @@ What optimizations did you make in your code? E.g. refactors, performance improv
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](./food-haven-6f3c8.web.app_.png)
