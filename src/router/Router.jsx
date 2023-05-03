@@ -9,6 +9,7 @@ import AllFood from "../page/recipes/AllFood";
 import AuthLayout from "../page/auth/AuthLayout";
 import Login from "../page/auth/Login";
 import SingUP from "../page/auth/SingUP";
+import Error404 from "../components/Error404";
 
 const router = createBrowserRouter([
   {
@@ -18,11 +19,12 @@ const router = createBrowserRouter([
   {
     path: "/recipes",
     element: <AllRecipesLayout />,
+    errorElement: <Error404 />,
     children: [
       {
         path: "/recipes",
         element: <AllFood />,
-        loader: ({ params }) => fetch(`http://localhost:3000/foods`),
+        loader: () => fetch(`http://localhost:3000/foods`),
       },
       {
         path: ":id",
@@ -41,6 +43,7 @@ const router = createBrowserRouter([
   {
     path: "/auth",
     element: <AuthLayout />,
+    errorElement: <Error404 />,
     children: [
       {
         path: "login",
@@ -59,6 +62,10 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
+  },
+  {
+    path: "*",
+    element: <Error404 />,
   },
 ]);
 

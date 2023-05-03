@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
+import { useState } from "react";
 import "./authLayout.css";
 import {
   BsEye,
