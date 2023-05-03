@@ -41,7 +41,6 @@ const Login = () => {
         .catch((error) => {
           setLoading(false);
           const errorMessage = error.message;
-          console.log(errorMessage);
           setErrorMsg(errorMessage);
           setlogInReq(false);
         });
@@ -82,7 +81,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="flex  h-full justify-center  overflow-hidden items-center">
+    <div className="flex  h-full justify-center  md:overflow-hidden items-center">
       {errorMsg && (
         <div className="py-6 text-center text-xl bg-red-700/70 w-screen absolute top-0 text-white">
           {" "}
@@ -90,11 +89,11 @@ const Login = () => {
         </div>
       )}
       {logInReq && (
-        <div className="absolute inset-0 flex justify-center items-center z-20 bg-black/75">
+        <div className="absolute h-full w-full md:inset-0 flex justify-center items-center z-20 bg-black/75">
           <ScaleLoader color="#fff" />
         </div>
       )}
-      <div className="bg-black/80  w-3/6 rounded-lg p-5">
+      <div className="bg-black/80 w-full md:w-3/6 md:rounded-lg p-5">
         <h1 className="text-center text-white">Log in</h1>
         <form onSubmit={handleLogIn} className="text-white ">
           <div className="form-control">

@@ -6,7 +6,7 @@ const UserInfo = () => {
   const { user, logOut } = useContext(AuthContext);
   const { photoURL, displayName } = user;
   return (
-    <div className="dropdown dropdown-end">
+    <div className="dropdown dropdown-end ml-auto md:ml-0">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img

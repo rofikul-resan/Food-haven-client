@@ -7,9 +7,13 @@ const AuthLayout = () => {
   return (
     <div>
       <Navber />
-      <div className="relative box-border ">
-        <img className="w-full blur-sm " src="/auth-bg.jpg" alt="" />
-        <div className="absolute inset-0 z-10 bg-black/60">
+      <div className="relative h-full box-border ">
+        <img
+          className="w-full blur-sm hidden md:block "
+          src="/auth-bg.jpg"
+          alt=""
+        />
+        <div className="md:absolute inset-0 z-10 bg-black/60">
           <Outlet />
         </div>
       </div>

@@ -83,7 +83,7 @@ const SingUP = () => {
   };
   return (
     <div className="flex  h-full justify-center  overflow-hidden items-center">
-      <div className="bg-black/80  w-3/6 rounded-lg p-5">
+      <div className="bg-black/80  md:w-3/6 w-full md:rounded-lg p-5">
         <h1 className="text-center text-white">Register Your Account</h1>
         <form onSubmit={handleSingUp} className="text-white ">
           <div className="form-control">
