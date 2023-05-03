@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./authLayout.css";
 import {
   BsEye,
@@ -8,11 +8,16 @@ import {
   BsGithub,
   BsGoogle,
 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const { login, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleLogIn = (event) => {
     event.preventDefault();
     const inputForm = event.target;
@@ -20,7 +25,15 @@ const Login = () => {
     const password = inputForm.password.value;
     if (password.length >= 6) {
       setErrorMsg("");
-      console.log(password, email);
+      login(email, password)
+        .then(() => {
+          navigate("/");
+        })
+        .catch((error) => {
+          setLoading(false);
+          const errorMessage = error.errorMessage;
+          toast(errorMessage);
+        });
     } else {
       setErrorMsg("password much be 6 characters");
     }
