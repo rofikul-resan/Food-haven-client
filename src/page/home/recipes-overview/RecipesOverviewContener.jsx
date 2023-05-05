@@ -1,18 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FoodCard from "../../recipes/FoodCard";
-import Slider from "react-slick";
 
 const RecipesOverviewContener = () => {
-  const sliderSitting = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true,
-  };
   const [recipe, setRecipe] = useState([]);
   useEffect(() => {
     fetch("https://food-heven-server-resan6231-gmailcom.vercel.app/foods")

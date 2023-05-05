@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer>
+    <footer data-theme="dark">
       <div className="footer p-10 bg-base-200 text-base-content">
         <div>
           <img className="h-16" src="/food-haven-logo.png" alt="" />
@@ -41,7 +41,8 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-center font-bold">
-        © 2023 Food. Built using React and developer Rofikul islam Resan .
+        © 2023 Food Haven . Built using React and develope by Rofikul islam
+        Resan .
       </p>
     </footer>
   );

@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const ChefCard = ({ chef }) => {
-  const { img, total_recipes, name, experience, birthday, birthPlace, about } =
-    chef;
+  const { img, total_recipes, name, experience, birthday, birthPlace } = chef;
   return (
     <div className="p-6 border-2 text-white border-white gap-8 rounded-lg justify-between flex flex-col md:flex-row mb-8 items-center">
       <div className=" rounded-md md:w-2/5 overflow-hidden">
