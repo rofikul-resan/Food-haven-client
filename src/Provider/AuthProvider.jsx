@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
 
   // sing up function
   const singUP = (email, password) => {
-    setLoading(true);
+    // setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 

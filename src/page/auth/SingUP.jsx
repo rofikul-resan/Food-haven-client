@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
+import { ScaleLoader } from "react-spinners";
 import {
   BsEye,
   BsEyeSlash,
@@ -15,25 +16,34 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const SingUP = () => {
   const [showPass, setShowPass] = useState(false);
   const [btnSubmit, setBtnSubmit] = useState(false);
+  const [logInReq, setlogInReq] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
-  const { singUP, updateUserData, googleSingIn, facebookSingIn, githubSingIn } =
-    useContext(AuthContext);
+  const {
+    singUP,
+    updateUserData,
+    googleSingIn,
+    facebookSingIn,
+    githubSingIn,
+    setLoading,
+  } = useContext(AuthContext);
   const location = useLocation();
   const from = location.state;
-  console.log(from);
+  console.log(errorMsg);
 
   const handleSingUp = (event) => {
+    setlogInReq(true);
     event.preventDefault();
     const inputForm = event.target;
-    const name = inputForm.name.value;
+    const name = inputForm.name.value || null;
     const password = inputForm.password.value;
-    const photoUrl = inputForm.photoUrl.value;
+    const photoUrl = inputForm.photoUrl.value || null;
     const email = inputForm.email.value;
     if (password.length >= 6) {
       setErrorMsg("");
       singUP(email, password)
         .then(() => {
+          setlogInReq(false);
           updateUserData(name, photoUrl)
             .then(() => {
               navigate(from || "/");
@@ -42,8 +52,11 @@ const SingUP = () => {
             .catch((e) => toast(e.message));
         })
         .catch((error) => {
+          setLoading(false);
           const errorMessage = error.message;
+          setErrorMsg(errorMessage);
           toast(errorMessage);
+          setlogInReq(false);
         });
     } else {
       setErrorMsg("password much be 6 characters");
@@ -83,6 +96,11 @@ const SingUP = () => {
   };
   return (
     <div className="flex  h-full justify-center  overflow-hidden items-center">
+      {logInReq && (
+        <div className="absolute h-full w-full md:inset-0 flex justify-center items-center z-20 bg-black/75">
+          <ScaleLoader color="#fff" />
+        </div>
+      )}
       <div className="bg-black/80  md:w-3/6 w-full md:rounded-lg p-5">
         <h1 className="text-center text-white">Register Your Account</h1>
         <form onSubmit={handleSingUp} className="text-white ">
@@ -90,18 +108,13 @@ const SingUP = () => {
             <label className="label">
               <span className=" font-semibold italic text-xl">Your Name</span>
             </label>
-            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="text" name="name" placeholder="Your Name" />
           </div>
           <div className="form-control">
             <label className="label">
               <span className=" font-semibold italic text-xl">Photo Url</span>
             </label>
-            <input
-              type="text"
-              name="photoUrl"
-              placeholder="Your Photo"
-              required
-            />
+            <input type="text" name="photoUrl" placeholder="Your Photo" />
           </div>
           <div className="form-control">
             <label className="label">

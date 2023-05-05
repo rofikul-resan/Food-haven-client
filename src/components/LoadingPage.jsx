@@ -7,9 +7,11 @@ const LoadingPage = ({ children }) => {
   const { loading } = useContext(AuthContext);
   if (loading) {
     return (
-      <div className="absolute min-h-screen min-w-full flex justify-center items-center">
-        <RiseLoader color="#000" />
-      </div>
+      <>
+        <div className="absolute z-50 min-h-screen min-w-full flex justify-center bg-white/80 items-center">
+          <RiseLoader color="#000" />
+        </div>
+      </>
     );
   }
 
