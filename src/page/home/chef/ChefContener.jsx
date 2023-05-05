@@ -17,7 +17,7 @@ const ChefContener = () => {
           aspects of food ... News from Wikinews. Quotations from Wikiquote.
         </p>
       </div>
-      <div>
+      <div className="grid  grid-cols-2 gap-6">
         {allChef.map((chef) => (
           <ChefCard key={chef.id} chef={chef} />
         ))}

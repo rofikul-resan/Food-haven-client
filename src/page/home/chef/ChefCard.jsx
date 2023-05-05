@@ -8,7 +8,7 @@ const ChefCard = ({ chef }) => {
     chef;
   return (
     <div className="p-6 border-2 text-white border-white gap-8 rounded-lg justify-between flex flex-col md:flex-row mb-8 items-center">
-      <div className="h-[400px] rounded-md md:w-2/5 overflow-hidden">
+      <div className=" rounded-md md:w-2/5 overflow-hidden">
         <LazyLoad className="h-full">
           <img className="h-full" src={img} />
         </LazyLoad>
@@ -33,17 +33,16 @@ const ChefCard = ({ chef }) => {
           </span>
           {experience} Year
         </p>
-        <p className="text-sm mt-3 pt-2 border-t border-t-white">{about}</p>
 
         <Link
           to={`/recipes/chef/${chef.id}`}
-          className="btn btn-success w-fit  mt-3 flex gap-3"
+          className="btn btn-sm btn-success w-fit  mt-3 flex gap-3"
         >
           View Recipes <BsArrowRight className="font-bold text-xl" />
         </Link>
 
         {/* chef info footer  */}
-        <div className="flex  items-center justify-between px-4 md:px-20 py-2 -mb-3 mt-3 rounded-md bg-white/10 w-full">
+        <div className="flex  items-center justify-between px-4  py-2 -mb-3 mt-3 rounded-md bg-white/10 w-full">
           <p>Total Recipes {total_recipes} items</p>
           <div className="flex items-center gap-1">
             <BsHandThumbsUpFill />
