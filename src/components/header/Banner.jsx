@@ -8,7 +8,7 @@ const Banner = () => {
         <div className=" grid md:grid-cols-2 w-10/12 mx-auto ">
           <div className="text-white mt-10">
             <h1 className=" text-5xl mb-6">Welcome to our Food Haven</h1>
-            <p className="font-semibold w-4/6">
+            <p className="font-semibold md:w-4/6">
               As a business that relies heavily on the taste of food, being able
               to whip up scrumptious dishes is the number one goal for every
               restaurant, takeaway, or food outlet. This will be second nature

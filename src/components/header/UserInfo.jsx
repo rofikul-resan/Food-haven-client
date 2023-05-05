@@ -26,7 +26,10 @@ const UserInfo = () => {
           </a>
         </li>
         <li>
-          <a className="hover:bg-violet-600"> Profile</a>
+          <label htmlFor="my-modal-5" className="hover:bg-violet-600">
+            {" "}
+            Profile
+          </label>{" "}
         </li>
         <li>
           <a className="hover:bg-violet-600">Settings</a>

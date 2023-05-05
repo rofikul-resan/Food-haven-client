@@ -11,7 +11,7 @@ const Blog = () => {
     <div>
       <Navber></Navber>
       <div
-        className="mockup-window border bg-base-300 md:m-10"
+        className="mockup-window rounded-none md:rounded-lg border bg-base-300 md:m-10"
         data-theme="dark"
       >
         <ReactToPdf targetRef={blog} filename="blog.pdf" scale={0.6}>
@@ -33,7 +33,7 @@ const Blog = () => {
           </div>
 
           <div className="chat chat-end">
-            <div className="chat-bubble w-1/2 chat-bubble-primary">
+            <div className="chat-bubble md:md:w-1/2 chat-bubble-primary">
               Controlled components refer to components that have their state
               and behavior controlled by the parent component. But uncontrolled
               components maintains there state internal. IN controlled
@@ -49,7 +49,7 @@ const Blog = () => {
           </div>
 
           <div className="chat chat-end">
-            <div className="chat-bubble w-1/2 chat-bubble-primary">
+            <div className="chat-bubble md:w-1/2 chat-bubble-primary">
               <h3> To validate react props using PropTypes Do this. </h3>
               <ul className="list-disc ml-5">
                 <li>
@@ -85,7 +85,7 @@ const Blog = () => {
           </div>
 
           <div className="chat chat-end">
-            <div className="chat-bubble w-1/2 chat-bubble-primary">
+            <div className="chat-bubble md:w-1/2 chat-bubble-primary">
               NodeJs in s Cross platform for executing javaScript code outside
               of browser . But Express is a framework to make NodeJs web server
               functionality to simplify. Express help to easily to make API and
@@ -102,7 +102,7 @@ const Blog = () => {
           </div>
 
           <div className="chat chat-end">
-            <div className="chat-bubble w-1/2 chat-bubble-primary">
+            <div className="chat-bubble md:w-1/2 chat-bubble-primary">
               Hook is a reuseable function . custom hook is a JavaScript
               function which is create by ourselves, when we want to share logic
               between other JavaScript functions we create a custom hook .

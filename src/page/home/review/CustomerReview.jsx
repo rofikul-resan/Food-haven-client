@@ -4,7 +4,7 @@ import ReviewCard from "./ReviewCard";
 const CustomerReview = () => {
   return (
     <div className="py-10">
-      <div className="w-3/5 mx-auto py-10 text-white text-center">
+      <div className="md:w-3/5 px-6 mx-auto py-10 text-white text-center">
         <h1 className="mb-6">Customer Review</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur

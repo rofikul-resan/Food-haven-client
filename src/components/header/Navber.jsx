@@ -2,18 +2,20 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserInfo from "./UserInfo";
 import { AuthContext } from "../../Provider/AuthProvider";
+import ProfileModal from "./ProfileModal";
 const Navber = () => {
   const [isNavShow, setIsNavShow] = useState(false);
   const { user } = useContext(AuthContext);
 
   return (
     <header>
+      <ProfileModal />
       <nav
         className="md:flex justify-between items-center text-white text-xl
-     nav-bg px-16 p py-3 relative"
+     nav-bg md:px-16 px-6 p py-3 relative"
       >
         {/* nav bar toggler start  */}
-        <div className="absolute right-12 md:hidden">
+        <div className="absolute top-6 right-6 md:hidden">
           <label className="btn btn-circle swap swap-rotate">
             <input onClick={() => setIsNavShow(!isNavShow)} type="checkbox" />
 
