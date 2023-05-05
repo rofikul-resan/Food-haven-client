@@ -6,12 +6,14 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RecipesOverviewContener from "./recipes-overview/RecipesOverviewContener";
 import CustomerReview from "./review/CustomerReview";
+import AboutOverview from "./review/about-section/AboutOverview";
 
 const HomeLayout = () => {
   return (
     <div>
       <Navber></Navber>
       <Banner></Banner>
+      <AboutOverview />
       <div className="chef-contener">
         <RecipesOverviewContener />
         <ChefContener></ChefContener>

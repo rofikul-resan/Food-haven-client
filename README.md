@@ -56,7 +56,3 @@ I'm a React developer from Bangladesh ...
 ## Optimizations
 
 What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
-
-## Screenshots
-
-![App Screenshot](./food-haven-6f3c8.web.app_.png)

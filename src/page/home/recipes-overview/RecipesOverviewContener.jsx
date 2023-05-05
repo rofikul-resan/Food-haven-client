@@ -16,7 +16,7 @@ const RecipesOverviewContener = () => {
         src="/auth-bg.jpg"
         alt=""
       />
-      <div className="w-3/5 mx-auto py-10 text-white text-center">
+      <div className="md:w-3/5 mx-auto py-10 text-white text-center">
         <h1 className="mb-6">Our Recipes</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
@@ -26,7 +26,7 @@ const RecipesOverviewContener = () => {
           iure molestiae ab?
         </p>
       </div>
-      <div className="md:w-4/5 mx-auto border rounded-md p-3 mt-6 border-white">
+      <div className="md:w-4/5 mx-auto rounded-md p-3 mt-6">
         <div className="flex justify-between text-white border-b pb-1 border-white">
           <p>Our recipe</p>{" "}
           <Link className="underline hover:text-orange-500" to={"/recipes"}>
