@@ -16,7 +16,7 @@ const image = [
 ];
 const Sponsor = () => {
   return (
-    <div className="py-10">
+    <div className="pb-10">
       <div className="md:w-3/5 px-6 mx-auto py-10 text-white text-center">
         <h1 className="mb-6">Our sponsor</h1>
         <p>
@@ -27,7 +27,7 @@ const Sponsor = () => {
       </div>
       <div className="md:px-20 mx-6">
         <Swiper
-          slidesPerView={1}
+          slidesPerView={3}
           spaceBetween={10}
           autoplay={{
             delay: 2500,
@@ -35,15 +35,15 @@ const Sponsor = () => {
           }}
           breakpoints={{
             640: {
-              slidesPerView: 2,
+              slidesPerView: 4,
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 4,
+              slidesPerView: 5,
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 5,
+              slidesPerView: 6,
               spaceBetween: 50,
             },
           }}
@@ -53,7 +53,7 @@ const Sponsor = () => {
           {image.map((img, i) => (
             <SwiperSlide key={i}>
               {" "}
-              <img src={img} className="w-44" />
+              <img src={img} />
             </SwiperSlide>
           ))}
         </Swiper>

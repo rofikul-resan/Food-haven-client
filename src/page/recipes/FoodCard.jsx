@@ -23,11 +23,11 @@ const FoodCard = ({ food }) => {
           <img className="w-full" src={food.MealThumb || cardImg} alt="" />
         </LazyLoad>
       </figure>
-      <div className="card-body justify-between">
-        <h2 className="text-2xl font-bold mb-3 border-b-2 border-white pb-2">
+      <div className="card-body py-1 justify-between">
+        <h2 className="text-2xl font-bold border-b-2 border-white pb-2">
           {food.Meal}
         </h2>
-        <div className="text-sm mb-5">
+        <div className="text-sm mb-2">
           <p>Area : {food.Area}</p>
           <p>
             Category : #<span className="underline">{food.Category}</span>{" "}

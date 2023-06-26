@@ -8,6 +8,7 @@ import RecipesOverviewContener from "./recipes-overview/RecipesOverviewContener"
 import CustomerReview from "./review/CustomerReview";
 import AboutOverview from "./review/about-section/AboutOverview";
 import Sponsor from "./Sponsor";
+import SpacialEvent from "./SpacialEvent";
 
 const HomeLayout = () => {
   return (
@@ -17,6 +18,7 @@ const HomeLayout = () => {
       <AboutOverview />
       <div className="chef-contener">
         <RecipesOverviewContener />
+        <SpacialEvent />
         <ChefContener></ChefContener>
         <Sponsor />
         <CustomerReview />
