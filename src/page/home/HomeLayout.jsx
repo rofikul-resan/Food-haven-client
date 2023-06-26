@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import RecipesOverviewContener from "./recipes-overview/RecipesOverviewContener";
 import CustomerReview from "./review/CustomerReview";
 import AboutOverview from "./review/about-section/AboutOverview";
+import Sponsor from "./Sponsor";
 
 const HomeLayout = () => {
   return (
@@ -17,6 +18,7 @@ const HomeLayout = () => {
       <div className="chef-contener">
         <RecipesOverviewContener />
         <ChefContener></ChefContener>
+        <Sponsor />
         <CustomerReview />
       </div>
       <ToastContainer />
